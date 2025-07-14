@@ -42,8 +42,10 @@ module.exports = async (req, res) => {
     res.json({ IpfsHash: result.IpfsHash });
   } catch (error) {
     console.error('Pinata upload error:', error);
-    res.status(500).json({ 
-      error: 'Failed to upload to Pinata: ' + error.message 
+    // Return full error for debugging
+    res.status(500).json({
+      error: error.message || 'Failed to upload to Pinata',
+      details: error
     });
   }
-}; 
+};
