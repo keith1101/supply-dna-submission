@@ -1,4 +1,4 @@
-const { PinataSDK } = require('pinata');
+const { PinataSDK } = require('@pinata/sdk');
 
 // Initialize Pinata with API keys
 const pinata = new PinataSDK({
