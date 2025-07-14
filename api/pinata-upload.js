@@ -1,7 +1,10 @@
 const PinataSDK = require('@pinata/sdk');
 
 // Initialize Pinata with API keys
-const pinata = PinataSDK(process.env.PINATA_API_KEY, process.env.PINATA_SECRET_API_KEY);
+const pinata = new PinataSDK({
+  apiKey: process.env.PINATA_API_KEY,
+  secretApiKey: process.env.PINATA_SECRET_API_KEY
+});
 
 module.exports = async (req, res) => {
   // Enable CORS
