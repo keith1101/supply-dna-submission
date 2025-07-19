@@ -58,7 +58,7 @@ export default function NFTDisplay({ component, tokenId, network = process.env.R
       polygon_mumbai: 'https://mumbai.polygonscan.com',
       polygon_amoy: 'https://amoy.polygonscan.com',
       bsc: 'https://bscscan.com',
-      sepolia: 'https://sepolia.etherscan.io'
+      sepolia: 'https://sepolia-blockscout.lisk.com'
     };
     const baseUrl = baseUrls[network] || baseUrls.polygon;
     return `${baseUrl}/token/${process.env.REACT_APP_CONTRACT_ADDRESS}?a=${tokenId}`;
