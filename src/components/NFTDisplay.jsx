@@ -15,7 +15,7 @@ function getRandomIcon(id) {
   return { Icon: iconList[idx], color: iconColors[idx] };
 }
 
-export default function NFTDisplay({ component, tokenId, network = process.env.REACT_APP_NETWORK || 'polygon' }) {
+export default function NFTDisplay({ component, tokenId, network = process.env.REACT_APP_NETWORK || 'sepolia' }) {
   const [metadata, setMetadata] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -54,13 +54,10 @@ export default function NFTDisplay({ component, tokenId, network = process.env.R
   const getExplorerUrl = () => {
     const baseUrls = {
       ethereum: 'https://etherscan.io',
-      polygon: 'https://polygonscan.com',
-      polygon_mumbai: 'https://mumbai.polygonscan.com',
-      polygon_amoy: 'https://amoy.polygonscan.com',
       bsc: 'https://bscscan.com',
       sepolia: 'https://sepolia-blockscout.lisk.com'
     };
-    const baseUrl = baseUrls[network] || baseUrls.polygon;
+    const baseUrl = baseUrls[network] || baseUrls.sepolia;
     return `${baseUrl}/token/${process.env.REACT_APP_CONTRACT_ADDRESS}?a=${tokenId}`;
   };
 
